@@ -1,0 +1,170 @@
+ @charset "utf-8";
+
+/* 공통 */
+body{font-family: "Roboto Condensed", "Noto Sans KR", sans-serif; font-size: 1.6rem; line-height: 1.35; color: #000;}
+.inner{max-width: 1640px; margin: 0 auto; padding: 0 20px;}
+
+/*header*/
+header{text-transform: uppercase; position: absolute; top: 0; left: 0; width: 100%; z-index: 9;}
+header .inner{display: flex; justify-content: space-between; align-items: center;}
+
+header nav{margin: 0 50px 0 auto;}
+header .gnb{display: flex;}
+header .gnb > li > a{display: block; padding: 10px 30px; color: #fff; font-weight: 700; font-size: 2rem;}
+
+header .btn-search{background-color: transparent; border: 0; cursor: pointer;}
+
+header .btn-ham{display: none; cursor: pointer; background-color: transparent; border: 0;}
+
+.mgnb-wrap{display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; padding: 100px 50px 50px;}
+.mgnb-wrap .mgnb > li{padding: 20px 0; border-bottom: 1px solid #ddd;}
+.mgnb-wrap .mgnb-close{position: absolute; top: 0; right: 0; background-color: #000; padding: 10px 20px; color: #fff; font-family: "Roboto Condensed", "Noto Sans KR", sans-serif; border: 0; cursor: pointer; text-transform: uppercase;}
+
+@media (max-width : 1400px){
+  header nav{margin: 0;}
+  header .gnb{display: none;}
+  header .btn-ham{display: block;}
+  header .btn-search{display: none;}
+}
+
+@media (max-width : 768px){
+  header h1 img{width: 100px;}
+}
+
+
+/*search*/
+/*
+height: 100%는 그냥은 적용안됨,
+position: fixed , position:absolute 일때만 적용됨
+일반적으로 사용할때는 100vh 사용
+*/
+.search{display: none; position: fixed; width: 100%; height: 100%; background: url(../images/search_bg.jpg) no-repeat center / cover; z-index: 999; padding: 50px;}
+/* 엄마의 높이값이 100% 로 인식되어서 100% 적용됨*/
+.search > div{height: 100%; background-color: rgba(255,255,255,0.85); display: flex; justify-content: center; align-items: center;}
+.search fieldset{border: 0;}
+.search input[type="text"]{border: 0; outline: 0; background-color: transparent; border-bottom: 3px solid #cbb390; width: 40vw; height: 60px; padding: 20px 10px; font-size: 3.5rem; font-family: "Roboto Condensed", "Noto Sans KR", sans-serif;}
+/* 입력요소들은 상단에 적용한 font-family가 적용안됨, 그래서 직접 적용해야 함*/
+
+.search input[type="text"]::placeholder{font-size: 3.5rem; color: #cbb390;}
+.search .search-btn{width: 50px; height: 60px; border: 0; border-bottom: 3px solid #cbb390; background-color: transparent; font-size: 0; color: transparent; background: url(../images/ico_search.png) no-repeat center; cursor: pointer;}
+
+.search .search-close{position: absolute; top: 100px; right: 100px; font-size: 0; color: transparent; width: 50px; height: 50px; cursor: pointer;}
+.search .search-close::before{content: ""; display: block; height: 1px; background-color: #000; transform: translateY(25px) rotate(45deg);}
+.search .search-close::after{content: ""; display: block; height: 1px; background-color: #000; transform: translateY(25px) rotate(-45deg);}
+
+/* main 공통 */
+main section:not(:first-child){margin: 200px 0;}
+main h2{font-size: 6rem; text-transform: uppercase; padding-bottom: 40px;}
+main .btn-more{text-transform: uppercase; display: inline-block; padding: 15px 50px 10px; border: 1px solid #000; font-weight: 700; transition: all 0.5s;}
+main .btn-more:hover{background-color: #000; color: #fff;}
+
+@media (max-width : 1400px){
+  main section:not(:first-child){margin: 140px 0;}
+  main h2{font-size: 4rem;}
+  main .btn-more{padding: 10px 40px 5px;}
+}
+
+@media (max-width : 768px){
+  main section:not(:first-child){margin: 100px 0;}
+  main h2{font-size: 3rem;}
+  main .btn-more{padding: 8px 30px 5px; font-size: 1.4rem;}
+}
+
+/*visual*/ 
+#visual h2{display: none;}
+#visual ul li{position: relative; height: 100vh;}
+#visual ul li.visual-01{background: url(../images/mv_01.jpg) no-repeat center / cover;}
+#visual ul li.visual-02{background: url(../images/mv_02.jpg) no-repeat center / cover;}
+#visual ul li .visual-txt{position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; text-align: center; color: #fff; text-transform: uppercase;}
+#visual ul li .visual-txt span{font-size: 3rem;}
+#visual ul li .visual-txt h3{font-size: 6rem; padding: 50px 0 0;}
+#visual .swiper-button-next, #visual .swiper-button-prev{color: #fff;}
+#visual .swiper-pagination{color: #fff; bottom: 50px;}
+
+@media (max-width : 1400px){
+  #visual ul li .visual-txt span{font-size: 2.5rem;}
+  #visual ul li .visual-txt h3{font-size: 5rem;}
+}
+
+@media (max-width : 768px){
+  #visual ul li .visual-txt span{font-size: 2rem;}
+  #visual ul li .visual-txt h3{font-size: 3.5rem;}
+  #visual .swiper-button-next, #visual .swiper-button-prev{display: none;}
+}
+
+
+/*about*/
+#about .inner{display: flex; align-items: center; flex-wrap: wrap; gap: 100px;}
+#about .inner > div{width: calc((100% - 100px) / 2);}
+#about .about-img img{width: 100%;}
+#about .about-txt p{font-size: 1.8rem; letter-spacing: -1px; color: #999; padding-bottom: 20px;}
+
+@media (max-width : 1400px){
+  #about .inner{gap: 50px;}
+  #about .inner > div{width: 100%;}
+  #about .about-txt p{font-size: 1.6rem;}
+}
+
+@media (max-width : 768px){
+  #about .inner{gap: 30px;}
+  #about .about-txt p{font-size: 1.4rem;}
+}
+
+
+/*artist*/
+#artist{text-align: center;}
+#artist .inner{max-width: 1400px;}
+#artist .artist-list{display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 30px;}
+#artist .artist-list li{width: calc((100% - 90px) / 4); position: relative; overflow: hidden;}
+#artist .artist-list li img{width: 100%;}
+#artist .artist-list li h3{position: absolute; top: 0; left: 100%; display: flex; justify-content: center; flex-direction: column; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); color: #fff; font-size: 2.5rem; font-weight: normal; transition: all 0.5s; opacity: 0;}
+#artist .artist-list li:hover h3{left: 0; opacity: 1;}
+#artist .artist-list li h3 span:last-child{font-size: 1.4rem;}
+
+@media (max-width : 1200px){
+  #artist .artist-list li h3{opacity: 1; left: 0; height: auto; bottom: 0; top: auto; font-size: 1.6rem; padding: 15px 0;}
+  /* 준값을 없애려면 값을 auto 로 주면됨 */
+  #artist .artist-list li h3 span:last-child{font-size: 1.2rem;}
+}
+
+@media (max-width : 768px){
+  #artist .artist-list{gap: 20px;}
+  #artist .artist-list li{width: calc((100% - 20px) / 2);}
+  #artist .artist-list li h3{font-size: 2rem;}
+}
+
+/*insight*/
+#insight .insight-list li img{width: 100%;}
+#insight .insight-list li .thumb{position: relative;}
+#insight .insight-list li .thumb div{position: absolute; bottom: 0; right: 0; opacity: 0.5; transition: all 0.5s;}
+#insight .insight-list li .thumb:hover div{opacity: 1;}
+#insight .btn-more{background-color: #000; color: #fff;}
+
+#insight .insight-list li dl dt{font-size: 2rem; padding: 20px 0 10px;}
+#insight .insight-list li dl dd:nth-of-type(1){color: #cbb390;}
+#insight .insight-list li dl dt:nth-of-type(2){color: #999;}
+
+@media (max-width : 1200px){
+  #insight .insight-list li.swiper-slide-active .thumb div{opacity: 1;}
+}
+
+@media (max-width : 768px) {
+  #insight .inner{padding: 0 50px;}
+  #insight h2{text-align: center;}
+}
+
+/*footer*/
+footer{background-color: #75644c; color: rgba(255,255,255,0.8); text-align: center;}
+footer .inner{padding: 50px 5%;}
+footer address{line-height: 2; padding: 20px 0 0;}
+footer address span:nth-of-type(2n-1){opacity: 0.5;}
+footer address span:nth-of-type(2n){display: inline-block; padding: 0 16px 0 8px;}
+footer .copy{background-color: #000; text-align: center; padding: 20px 0;}
+
+.none{display: none;}
+
+@media (max-width : 768px){
+  footer{font-size: 1.2rem;}
+  footer .inner{padding: 30px 5%;}
+  .none{display: block;}
+}
